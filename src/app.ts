@@ -7,6 +7,7 @@ import allowLocalhost from "./middlewares/allowLocalhost";
 import returnIndex from "./middlewares/returnIndex";
 import userRouter from "./routers/userRouter";
 import articleRouter from "./routers/articleRouter";
+import artistRouter from "./routers/artistRouter";
 
 const app = express();
 
@@ -26,6 +27,7 @@ const initRouting = async() => {
 
     app.use(userRouter);
     app.use(articleRouter);
+    app.use(artistRouter);
     
     app.use(express.static(publicDirectoryPath));
 }

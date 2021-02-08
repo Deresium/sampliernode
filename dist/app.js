@@ -40,6 +40,7 @@ const allowLocalhost_1 = __importDefault(require("./middlewares/allowLocalhost")
 const returnIndex_1 = __importDefault(require("./middlewares/returnIndex"));
 const userRouter_1 = __importDefault(require("./routers/userRouter"));
 const articleRouter_1 = __importDefault(require("./routers/articleRouter"));
+const artistRouter_1 = __importDefault(require("./routers/artistRouter"));
 const app = express_1.default();
 const initRouting = () => __awaiter(void 0, void 0, void 0, function* () {
     yield pgConnexion_1.connect();
@@ -54,6 +55,7 @@ const initRouting = () => __awaiter(void 0, void 0, void 0, function* () {
     app.use(express_1.default.json());
     app.use(userRouter_1.default);
     app.use(articleRouter_1.default);
+    app.use(artistRouter_1.default);
     app.use(express_1.default.static(publicDirectoryPath));
 });
 initRouting().then(() => console.log('init routing ok'));

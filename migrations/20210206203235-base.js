@@ -84,6 +84,12 @@ module.exports = {
                     },
                     description: {
                         type: Sequelize.STRING(4000)
+                    },
+                    createdAt: {
+                        type: Sequelize.DATE
+                    },
+                    updatedAt: {
+                        type: Sequelize.DATE
                     }
                 },{transaction: t}),
 
