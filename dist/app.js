@@ -44,7 +44,7 @@ const artistRouter_1 = __importDefault(require("./routers/artistRouter"));
 const app = express_1.default();
 const initRouting = () => __awaiter(void 0, void 0, void 0, function* () {
     yield pgConnexion_1.connect();
-    const publicDirectoryPath = path_1.default.join(__dirname, '../public');
+    const publicDirectoryPath = path_1.default.join(__dirname, '../public/samplier');
     if (process.env.NODE_ENV === 'production') {
         app.use(redirectHttps_1.default);
     }

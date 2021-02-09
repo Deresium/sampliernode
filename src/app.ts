@@ -14,7 +14,7 @@ const app = express();
 const initRouting = async() => {
     await connect()
     
-    const publicDirectoryPath = path.join(__dirname, '../public');
+    const publicDirectoryPath = path.join(__dirname, '../public/samplier');
     
     if(process.env.NODE_ENV === 'production') {
         app.use(redirectHttps);
