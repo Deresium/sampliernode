@@ -1,6 +1,6 @@
 import {Sequelize} from "sequelize"
 
-const sequelize = new Sequelize(process.env.PG_URL);
+const sequelize = new Sequelize(process.env.DATABASE_URL);
 const connect = async() => {
     console.log('try to connect...');
     try {

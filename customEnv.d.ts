@@ -13,5 +13,6 @@ declare namespace NodeJS{
         AWS_BUCKET_NAME: string;
         DB_NAME: string;
         DB_HOST: string;
+        DATABASE_URL: string;
     }
 }
