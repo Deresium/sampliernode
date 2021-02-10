@@ -11,5 +11,7 @@ declare namespace NodeJS{
         AWS_KEY_ID: string;
         AWS_KEY_SECRET: string;
         AWS_BUCKET_NAME: string;
+        DB_NAME: string;
+        DB_HOST: string;
     }
 }
