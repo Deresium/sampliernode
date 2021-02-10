@@ -19,6 +19,7 @@ module.exports = {
         "password": process.env.PG_PASSWORD,
         "database": "d1iv2u5kpp1rgq",
         "host": "ec2-54-72-155-238.eu-west-1.compute.amazonaws.com",
-        "dialect": "postgres"
+        "dialect": "postgres",
+        "ssl": true
     }
 }
