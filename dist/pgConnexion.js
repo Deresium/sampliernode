@@ -12,7 +12,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.sequelize = exports.connect = void 0;
 const sequelize_1 = require("sequelize");
 const sequelize = new sequelize_1.Sequelize(process.env.DATABASE_URL, {
-    ssl: process.env.NODE_ENV === 'production'
+    dialectOptions: {
+        ssl: {
+            rejectUnauthorized: false
+        }
+    }
 });
 exports.sequelize = sequelize;
 const connect = () => __awaiter(void 0, void 0, void 0, function* () {
