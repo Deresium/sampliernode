@@ -13,7 +13,6 @@ userRouter.post('/createAccount', async(req, res) => {
 	const firstName = req.body.firstName;
 	const email = req.body.email;
 	const password = req.body.password;
-	const phone = req.body.phone;
 	
 	try{
 		const foundUser = await User.findOne({where: {email}});
@@ -28,7 +27,6 @@ userRouter.post('/createAccount', async(req, res) => {
 			name,
 			firstName,
 			email,
-			phone,
 			password: passwordHash,
 			salted: salt,
 			roleCode: Roles.USER

@@ -24,7 +24,6 @@ userRouter.post('/createAccount', (req, res) => __awaiter(void 0, void 0, void 0
     const firstName = req.body.firstName;
     const email = req.body.email;
     const password = req.body.password;
-    const phone = req.body.phone;
     try {
         const foundUser = yield User_1.default.findOne({ where: { email } });
         if (foundUser) {
@@ -37,7 +36,6 @@ userRouter.post('/createAccount', (req, res) => __awaiter(void 0, void 0, void 0
             name,
             firstName,
             email,
-            phone,
             password: passwordHash,
             salted: salt,
             roleCode: roles_1.default.USER

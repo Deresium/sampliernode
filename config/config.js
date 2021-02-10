@@ -17,8 +17,8 @@ module.exports = {
     production: {
         "username": process.env.PG_USER,
         "password": process.env.PG_PASSWORD,
-        "database": "dp0fu85l7k2dg",
-        "host": "ec2-34-247-118-233.eu-west-1.compute.amazonaws.com",
+        "database": "d1iv2u5kpp1rgq",
+        "host": "ec2-54-72-155-238.eu-west-1.compute.amazonaws.com",
         "dialect": "postgres"
     }
 }
