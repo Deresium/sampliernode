@@ -2,7 +2,7 @@
 
 module.exports = {
     up: async (queryInterface, Sequelize) => {
-        return queryInterface.bulkInsert('Artists', [{
+        return queryInterface.bulkInsert('Hashtags', [{
             hashtagId: 1,
             name: 'Rap US',
             artistId: 1,
@@ -42,6 +42,6 @@ module.exports = {
     },
 
     down: async (queryInterface, Sequelize) => {
-        return queryInterface.bulkDelete('Articles', null, {});
+        return queryInterface.bulkDelete('Hashtags', null, {});
     }
 };
