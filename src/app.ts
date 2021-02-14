@@ -8,6 +8,7 @@ import returnIndex from "./middlewares/returnIndex";
 import userRouter from "./routers/userRouter";
 import articleRouter from "./routers/articleRouter";
 import artistRouter from "./routers/artistRouter";
+import releaseRouter from "./routers/releaseRouter";
 
 const app = express();
 
@@ -28,6 +29,7 @@ const initRouting = async() => {
     app.use(userRouter);
     app.use(articleRouter);
     app.use(artistRouter);
+    app.use(releaseRouter);
     
     app.use(express.static(publicDirectoryPath));
 }

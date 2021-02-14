@@ -4,7 +4,6 @@ declare namespace NodeJS{
         DNS_NAME: string;
         PG_USER: string;
         PG_PASSWORD: string;
-        PG_URL: string;
         JWT_SECRET: string;
         JWT_SECRET_2: string;
         SENDGRID_API_KEY: string;
