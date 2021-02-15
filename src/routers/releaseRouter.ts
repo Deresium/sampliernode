@@ -32,9 +32,11 @@ releaseRouter.put('/release/:id', authOnlyAdmin, upload.single('file'), async(re
                 releaseId
             }
         })
-        const image = req.file;
-        const fileName = `release_${releaseId}`;
-        await sendToAWS(image.buffer, fileName)
+        if(req.file) {
+            const image = req.file;
+            const fileName = `release_${releaseId}`;
+            await sendToAWS(image.buffer, fileName)
+        }
         res.send();
     }catch(error){
         console.log(error);
@@ -59,6 +61,10 @@ releaseRouter.delete('/release/:id', authOnlyAdmin, async(req, res) => {
 
 
 releaseRouter.post('/release', authOnlyAdmin, upload.single('file'), async(req, res) => {
+    if(!req.file){
+        res.status(500).send();
+        return;
+    }
     try {
         const release = await Release.create({
             name: req.body.name,

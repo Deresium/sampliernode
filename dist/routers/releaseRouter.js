@@ -41,9 +41,11 @@ releaseRouter.put('/release/:id', authentication_1.authOnlyAdmin, upload.single(
                 releaseId
             }
         });
-        const image = req.file;
-        const fileName = `release_${releaseId}`;
-        yield awsCalls_1.sendToAWS(image.buffer, fileName);
+        if (req.file) {
+            const image = req.file;
+            const fileName = `release_${releaseId}`;
+            yield awsCalls_1.sendToAWS(image.buffer, fileName);
+        }
         res.send();
     }
     catch (error) {
@@ -67,6 +69,10 @@ releaseRouter.delete('/release/:id', authentication_1.authOnlyAdmin, (req, res) 
     }
 }));
 releaseRouter.post('/release', authentication_1.authOnlyAdmin, upload.single('file'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    if (!req.file) {
+        res.status(500).send();
+        return;
+    }
     try {
         const release = yield Release_1.default.create({
             name: req.body.name,
