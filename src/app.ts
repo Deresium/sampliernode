@@ -9,31 +9,27 @@ import userRouter from "./routers/userRouter";
 import articleRouter from "./routers/articleRouter";
 import artistRouter from "./routers/artistRouter";
 import releaseRouter from "./routers/releaseRouter";
+import contactRouter from "./routers/contactRouter";
 
 const app = express();
 
-const initRouting = async() => {
-    await connect()
-    
-    const publicDirectoryPath = path.join(__dirname, '../public/samplier');
-    
-    if(process.env.NODE_ENV === 'production') {
-        app.use(redirectHttps);
-    }else{
-        app.use(allowLocalhost);
-    }
-    app.use(returnIndex);
-    
-    app.use(express.json());
+const publicDirectoryPath = path.join(__dirname, '../public/samplier');
 
-    app.use(userRouter);
-    app.use(articleRouter);
-    app.use(artistRouter);
-    app.use(releaseRouter);
-    
-    app.use(express.static(publicDirectoryPath));
+if(process.env.NODE_ENV === 'production') {
+    app.use(redirectHttps);
+}else{
+    app.use(allowLocalhost);
 }
+app.use(returnIndex);
 
-initRouting().then(() => console.log('init routing ok'));
+app.use(express.json());
+
+app.use(userRouter);
+app.use(articleRouter);
+app.use(artistRouter);
+app.use(releaseRouter);
+app.use(contactRouter);
+
+app.use(express.static(publicDirectoryPath));
 
 export default app;
