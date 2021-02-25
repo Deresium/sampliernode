@@ -2,8 +2,8 @@ import sgMail from '@sendgrid/mail'
 import Contact from "./models/Contact";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-const to = 'dimitri.steinbusch@creatiview.be';
-const from = 'no-reply@creatiview.be';
+const to = 'contact.samplier@gmail.com';
+const from = 'no-reply@samplier.be';
 const sendContactMail = async(contact: Contact)=>{
     await sgMail.send({
         to,

@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const Contact_1 = __importDefault(require("../models/Contact"));
+const sendgridSamplier_1 = require("../sendgridSamplier");
 const contactRouter = express_1.default.Router();
 contactRouter.post('/contact', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -23,7 +24,7 @@ contactRouter.post('/contact', (req, res) => __awaiter(void 0, void 0, void 0, f
             email: req.body.email,
             message: req.body.message
         });
-        //await sendContactMail(contact);
+        yield sendgridSamplier_1.sendContactMail(contact);
         res.send();
     }
     catch (error) {

@@ -12,7 +12,7 @@ contactRouter.post('/contact', async(req, res) => {
             email: req.body.email,
             message: req.body.message
         })
-        //await sendContactMail(contact);
+        await sendContactMail(contact);
         res.send();
     }catch(error) {
         res.status(500).send();
