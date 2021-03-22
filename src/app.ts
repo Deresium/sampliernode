@@ -10,6 +10,8 @@ import articleRouter from "./routers/articleRouter";
 import artistRouter from "./routers/artistRouter";
 import releaseRouter from "./routers/releaseRouter";
 import contactRouter from "./routers/contactRouter";
+import dropSongRouter from "./routers/dropSongRouter";
+import downloadFileRouter from "./routers/downloadFileRouter";
 
 const app = express();
 
@@ -20,15 +22,19 @@ if(process.env.NODE_ENV === 'production') {
 }else{
     app.use(allowLocalhost);
 }
-app.use(returnIndex);
 
 app.use(express.json());
+
+app.use(downloadFileRouter);
+
+app.use(returnIndex);
 
 app.use(userRouter);
 app.use(articleRouter);
 app.use(artistRouter);
 app.use(releaseRouter);
 app.use(contactRouter);
+app.use(dropSongRouter);
 
 app.use(express.static(publicDirectoryPath));
 

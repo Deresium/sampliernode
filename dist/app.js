@@ -33,6 +33,8 @@ const articleRouter_1 = __importDefault(require("./routers/articleRouter"));
 const artistRouter_1 = __importDefault(require("./routers/artistRouter"));
 const releaseRouter_1 = __importDefault(require("./routers/releaseRouter"));
 const contactRouter_1 = __importDefault(require("./routers/contactRouter"));
+const dropSongRouter_1 = __importDefault(require("./routers/dropSongRouter"));
+const downloadFileRouter_1 = __importDefault(require("./routers/downloadFileRouter"));
 const app = express_1.default();
 const publicDirectoryPath = path_1.default.join(__dirname, '../public/samplier');
 if (process.env.NODE_ENV === 'production') {
@@ -41,13 +43,15 @@ if (process.env.NODE_ENV === 'production') {
 else {
     app.use(allowLocalhost_1.default);
 }
-app.use(returnIndex_1.default);
 app.use(express_1.default.json());
+app.use(downloadFileRouter_1.default);
+app.use(returnIndex_1.default);
 app.use(userRouter_1.default);
 app.use(articleRouter_1.default);
 app.use(artistRouter_1.default);
 app.use(releaseRouter_1.default);
 app.use(contactRouter_1.default);
+app.use(dropSongRouter_1.default);
 app.use(express_1.default.static(publicDirectoryPath));
 exports.default = app;
 //# sourceMappingURL=app.js.map
