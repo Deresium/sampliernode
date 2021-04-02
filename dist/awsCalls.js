@@ -32,8 +32,13 @@ const getFromAWS = (fileName) => __awaiter(void 0, void 0, void 0, function* () 
         Bucket: process.env.AWS_BUCKET_NAME,
         Key: fileName
     };
-    const response = yield s3.getObject(params).promise();
-    return response.Body;
+    try {
+        const response = yield s3.getObject(params).promise();
+        return response.Body;
+    }
+    catch (error) {
+        return null;
+    }
 });
 exports.getFromAWS = getFromAWS;
 //# sourceMappingURL=awsCalls.js.map

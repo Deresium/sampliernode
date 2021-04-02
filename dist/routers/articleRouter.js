@@ -29,8 +29,12 @@ articleRouter.get('/article/:articleId/image/:imageId', (req, res) => __awaiter(
     try {
         const articleId = req.params.articleId;
         const imageId = req.params.imageId;
-        const imgName = `${articleId}_${imageId}.jpg`;
-        const picture = yield awsCalls_1.getFromAWS(imgName);
+        let imgName = `${articleId}_${imageId}.jpg`;
+        let picture = yield awsCalls_1.getFromAWS(imgName);
+        if (!picture) {
+            imgName = `${articleId}_${imageId}.png`;
+            picture = yield awsCalls_1.getFromAWS(imgName);
+        }
         if (picture) {
             res.set('Content-Type', 'image/jpeg');
             res.send(picture);

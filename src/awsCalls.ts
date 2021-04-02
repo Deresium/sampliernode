@@ -20,9 +20,12 @@ const getFromAWS = async(fileName: string) => {
 		Bucket: process.env.AWS_BUCKET_NAME,
 		Key: fileName
 	}
-	
-	const response = await s3.getObject(params).promise();
-	return response.Body;
+	try {
+        const response = await s3.getObject(params).promise();
+        return response.Body;
+    }catch(error){
+	    return null;
+    }
 }
 
 export {
