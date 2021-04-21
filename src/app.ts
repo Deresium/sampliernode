@@ -15,7 +15,7 @@ import downloadFileRouter from "./routers/downloadFileRouter";
 
 const app = express();
 
-const publicDirectoryPath = path.join(__dirname, '../public/samplier');
+const publicDirectoryPath = path.join(__dirname, '../public/');
 
 if(process.env.NODE_ENV === 'production') {
     app.use(redirectHttps);

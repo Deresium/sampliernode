@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = __importDefault(require("path"));
 const returnIndex = (req, res, next) => {
     var _a;
-    if ((_a = req.headers.accept) === null || _a === void 0 ? void 0 : _a.includes('text/html')) {
+    if (((_a = req.headers.accept) === null || _a === void 0 ? void 0 : _a.includes('text/html')) && !req.originalUrl.endsWith('.txt')) {
         const publicDirectoryPath = path_1.default.join(__dirname, '../../public/samplier');
         res.sendFile(publicDirectoryPath + '/index.html');
     }

@@ -36,7 +36,7 @@ const contactRouter_1 = __importDefault(require("./routers/contactRouter"));
 const dropSongRouter_1 = __importDefault(require("./routers/dropSongRouter"));
 const downloadFileRouter_1 = __importDefault(require("./routers/downloadFileRouter"));
 const app = express_1.default();
-const publicDirectoryPath = path_1.default.join(__dirname, '../public/samplier');
+const publicDirectoryPath = path_1.default.join(__dirname, '../public/');
 if (process.env.NODE_ENV === 'production') {
     app.use(redirectHttps_1.default);
 }
